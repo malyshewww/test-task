@@ -5,3 +5,4 @@ _node_modules/
 package-lock.json
 .idea/
 .git
+.md
