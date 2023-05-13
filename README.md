@@ -12,6 +12,3 @@ Created on nodejs: **v16.14.0**
 ## Command for using
 * `gulp` or `gulp watch` - start local server and watching files project
 * `gulp build` - build project
-## Author
-Name: Aleksandr Syrejshchikov
-Site: [as-web.ru](https://as-web.ru/)
