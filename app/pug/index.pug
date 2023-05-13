@@ -1,0 +1,67 @@
+extends includes/layout.pug
+
+append variables
+	- let pageTitle = "Бизнес";
+	- description += pageTitle;
+block content
+	section.home(style="background-image: url('./images/home-bg.jpg')")
+		.home__container 
+			.home__header 
+				h1.home__title.
+					#[span Lorem ipsum] 
+					| dolor sit amet consectetur 
+					#[span adipiscing]
+			.home__body 
+				p.home__text At vero eos et accusamus et iusto odio dignissimos ducimus!
+				ul.home__list 
+					li Totam rem aperiam eaque ipsa
+					li Sit voluptatem accusantium doloremque laudantium
+					li Sed ut perspiciatis, unde omnis iste natus error
+			.home__footer 
+				.home__buttons 
+					button(type="button").home__btn.btn.btn-blue заказать
+					button(type="button").home__btn.btn.btn-white подробнее
+	section.order 
+		.order__container 
+			.block-heading
+				h2.block-heading__title 
+					| Оформление #[span Заказа]
+				p.block-heading__subtitle Перед заполнением формы ознакомьтесь с нашей схемой работы!
+			.order__steps 
+				each item, index in steps
+					.order__step.step-order
+						.step-order__icon 
+							+svgsprite(`order-${index+1}`)
+						.step-order__title= item.title
+			form(action="#" method="post" enctype="multipart/form-data" id="formOrder" class="form")
+				.form__body
+					.form__item
+						.form__select.select
+							.select__button
+								input(type="text" name="type" value="Выберите тип системы").select__input
+								.select__icon 
+									+svgsprite('arrow')
+							.select__dropdown 
+								ul.select__list(data-simplebar)
+									li.select__list-item Sed ut perspiciatis
+									li.select__list-item Nemo enim ipsam
+									li.select__list-item Et harum quidem
+									li.select__list-item Temporibus autem
+									li.select__list-item Itaque earum rerum
+					.form__item 
+						input(type="email" placeholder="Ваш e-mail" name="email").form__input
+					.form__item 
+						input(type="email" placeholder="Ваше имя" name="name").form__input
+					.form__item.item-range
+						.item-range__description Sed ut perspiciatis, unde omnis iste natus
+						.item-range__value 75 %
+						.item-range__slider
+							#slider.slider
+					.form__item.upload-file
+						.upload-file__button 
+							label(for="file").upload-file__label Прикрепить файл
+								span.upload-file__icon
+							input(type="file" name="file").upload-file__input
+				.form__footer 
+					button(type="submit").form__button.btn.btn-blue Отправить
+

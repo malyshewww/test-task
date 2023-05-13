@@ -1,0 +1,4 @@
+ul.menu__list
+	each item, index in menu
+		li.menu__item(class={active: item.title == pageTitle})
+			a.menu__link(href=item.link)= item.title

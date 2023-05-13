@@ -1,0 +1,38 @@
+// Заголовки, общие БЄМ блоки и прочее...
+.btn {
+	min-height: 43px;
+	border: 1px solid $whiteColor;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 13px;
+	line-height: 16px;
+	text-transform: uppercase;
+	padding: 15px 31px;
+	cursor: pointer;
+	min-width: 183px;
+	transition: all 0.2s ease 0s;
+	@media screen and (max-width: $md) {
+		max-width: 100%;
+		width: 100%;
+	}
+}
+.btn-blue {
+	background-color: $blueColor;
+	color: $whiteColor;
+	&:hover {
+		background-color: $whiteColor;
+		color: $blackColorSecondary;
+	}
+}
+.btn-white {
+	background-color: $whiteColor;
+	color: $blackColorSecondary;
+	border-color: #6f6d7b;
+	&:hover {
+		background-color: $blueColor;
+		color: $whiteColor;
+	}
+}

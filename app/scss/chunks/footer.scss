@@ -1,0 +1,129 @@
+.footer {
+	padding: 30px 0;
+	background-color: #3d4050;
+	font-size: 13px;
+	line-height: 16px;
+	color: $whiteColor;
+	&__body {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		align-items: center;
+		@media screen and (max-width: $lg) {
+			grid-template-columns: 1fr;
+			justify-content: center;
+			text-align: center;
+			gap: 20px;
+		}
+	}
+	&__item {
+		position: relative;
+		@media screen and (min-width: $lg) {
+			&:not(:last-child) {
+				padding-right: 40px;
+				&::before {
+					content: "";
+					position: absolute;
+					width: 1px;
+					height: 18px;
+					background-color: #c3c3c3;
+					top: 50%;
+					transform: translateY(-50%);
+					right: 0;
+				}
+			}
+			&--payments {
+				padding-left: 40px;
+			}
+			&--contacts {
+				padding-left: 35px;
+			}
+		}
+		&--copy {
+			@media screen and (max-width: $lg) {
+				order: 1;
+			}
+		}
+	}
+	&__copy {
+		line-height: 20px;
+	}
+	&__payments {
+	}
+	&__contacts {
+	}
+}
+.payments-footer {
+	&__list {
+		@include reset-list;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 15px 38px;
+		@media screen and (max-width: $lg) {
+			gap: 15px;
+		}
+		& li {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+	}
+	&__icon {
+		width: 20px;
+		height: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-size: 20px 20px;
+		background-repeat: no-repeat;
+	}
+	&__icon--qiwi {
+		background-image: url("../images/icons/qiwi-icon.svg");
+	}
+	&__icon--yandex {
+		background-image: url("../images/icons/yandex-icon.svg");
+	}
+	&__icon--webmoney {
+		background-image: url("../images/icons/webmoney-icon.svg");
+	}
+	&__name {
+		color: #c3c3c3;
+	}
+}
+.contacts-footer {
+	&__list {
+		@include reset-list;
+		display: flex;
+		align-items: center;
+		gap: 15px 38px;
+		flex-wrap: wrap;
+		@media screen and (max-width: $lg) {
+			justify-content: center;
+			gap: 15px;
+		}
+	}
+	&__link {
+		color: $whiteColor;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		text-decoration: none;
+	}
+	&__icon {
+		width: 20px;
+		height: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-size: 20px 20px;
+		background-repeat: no-repeat;
+	}
+	&__icon--email {
+		background-image: url("../images/icons/msg-icon.svg");
+	}
+	&__icon--vk {
+		background-image: url("../images/icons/vk-icon.svg");
+	}
+}

@@ -1,0 +1,159 @@
+.header {
+	background: rgba(16, 16, 29, 0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 20;
+	&__body {
+		padding: 32px 0;
+		min-height: 100px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+	}
+	&__logo {
+		display: block;
+	}
+	&__menu {
+		display: flex;
+		align-items: center;
+	}
+}
+.menu {
+	&__body {
+	}
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 20px 60px;
+		@include reset-list;
+	}
+	&__item {
+		&.active {
+			& .menu__link {
+				color: $blueColor;
+			}
+		}
+	}
+	&__link {
+		display: block;
+		font-weight: 600;
+		font-size: 13px;
+		line-height: 16px;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: $whiteColor;
+		transition: all 0.2s ease 0s;
+		&:hover {
+			color: $blueColor;
+		}
+	}
+	&__icon {
+		display: none;
+	}
+}
+
+@media screen and (max-width: $md) {
+	.header {
+		&__body {
+			min-height: 60px;
+			padding: 15px 0;
+		}
+		&__logo {
+			width: 140px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 20px;
+		}
+	}
+	.menu__body {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #272733;
+		padding: 70px 40px 52px;
+		text-align: left;
+		overflow-x: hidden;
+		overflow-y: auto;
+		left: -100%;
+		z-index: 10;
+		transition: left 0.3s ease 0s;
+		&::before {
+			content: "";
+			position: fixed;
+			top: 0;
+			height: 60px;
+			width: 100%;
+			background-color: #272733;
+			left: -100%;
+			transition: left 0.3s ease 0s;
+			z-index: 2;
+		}
+		&.open {
+			left: 0;
+			&::before {
+				left: 0;
+			}
+		}
+	}
+	.menu__icon {
+		width: 28px;
+		height: 18px;
+		display: block;
+		z-index: 10;
+		position: relative;
+		background-color: transparent;
+		&::before,
+		&::after,
+		& span {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: $whiteColor;
+			transition: all 0.3s ease 0s;
+		}
+		&::before,
+		&::after {
+			content: "";
+		}
+		& span {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		&.active {
+			& span {
+				opacity: 0;
+			}
+			&::before {
+				top: 9px;
+				transform: rotate(45deg);
+				background-color: $whiteColor;
+			}
+			&::after {
+				bottom: 7.5px;
+				transform: rotate(135deg);
+				background-color: $whiteColor;
+			}
+		}
+	}
+	.menu__list {
+		flex-direction: column;
+	}
+	.menu__link {
+		line-height: 24px;
+		font-size: 20px;
+	}
+}
